@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precision Web Solutions | High-Performance Digital Strategy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #05080f;
+            --bg-card: #0f172a;
+            --accent-blue: #0ea5e9;
+            --accent-glow: rgba(14, 165, 233, 0.3);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --white: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(5, 8, 15, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-logo {
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-logo span { color: var(--accent-blue); }
+
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { 
+            text-decoration: none; color: var(--text-muted); 
+            font-size: 0.9rem; font-weight: 600; transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--accent-blue); }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 180px 5% 100px;
+            text-align: center;
+            background: radial-gradient(circle at top right, var(--accent-glow), transparent 40%);
+        }
+
+        .hero-badge {
+            background: rgba(14, 165, 233, 0.1);
+            color: var(--accent-blue);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: 1px solid var(--accent-blue);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            margin: 2rem 0;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(to right, #fff, var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Services/Features --- */
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-size: 2.5rem; font-weight: 800; }
+        .section-title p { color: var(--accent-blue); text-transform: uppercase; letter-spacing: 2px; font-weight: 700; font-size: 0.9rem; }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 5% 5rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Pricing Section --- */
+        .pricing { padding: 5rem 5%; background: #070b14; }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: var(--bg-deep);
+            padding: 3rem 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-card.popular {
+            border: 2px solid var(--accent-blue);
+            transform: scale(1.05);
+            background: var(--bg-card);
+        }
+
+        .price-val { font-size: 3.5rem; font-weight: 900; margin: 1rem 0; }
+        .price-val span { font-size: 1rem; color: var(--text-muted); }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent-blue);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px var(--accent-glow);
+            transform: scale(1.02);
+        }
+
+        /* --- Contact Form Section --- */
+        .contact-container {
+            max-width: 900px;
+            margin: 5rem auto;
+            padding: 4rem 5%;
+            background: var(--bg-card);
+            border-radius: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            background: var(--bg-deep);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .contact-container { grid-template-columns: 1fr; }
+            .price-card.popular { transform: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="nav-logo">PRECISION<span> WEB</span></a>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <span class="hero-badge">Next-Gen Digital Agency</span>
+        <h1>Your Craft is World-Class.<br><span>Your Presence Should Be, Too.</span></h1>
+        <p>We build high-performance digital ecosystems that bridge the gap between technical expertise and market authority. From local specialists to global partners.</p>
+        <div class="hero-btns">
+            <a href="#contact" class="btn btn-primary">Start Your Project</a>
+        </div>
+    </section>
+
+    <section id="services" style="padding: 5rem 0;">
+        <div class="section-title">
+            <p>Our Expertise</p>
+            <h2>Engineered for Growth</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>High-Speed Core</h3>
+                <p>Lightning-fast load times designed to boost Google rankings and retain impatient customers.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile-First Design</h3>
+                <p>Fluid, responsive interfaces that look flawless on every screen size, from iPhone to Desktop.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-search-location"></i>
+                <h3>Local SEO Mastery</h3>
+                <p>Dominate your local market search results and capture customers right when they need you.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="section-title">
+            <p>Pricing Plans</p>
+            <h2>Ready to Scale?</h2>
+        </div>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>THE STARTER</h3>
+                <div class="price-val">$499</div>
+                <p style="color: var(--text-muted); flex-grow: 1;">Perfect for local craftsmen needing a high-impact digital showroom.</p>
+                <ul style="list-style: none; padding: 0; margin: 2rem 0; text-align: left; font-size: 0.9rem;">
+                    <li><i class="fas fa-check" style="color: var(--accent-blue)"></i> 5-Page Responsive Site</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-blue)"></i> Essential SEO Setup</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-blue)"></i> 1 Year Hosting Support</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary">Choose Starter</a>
+            </div>
+
+            <div class="price-card popular">
+                <div style="background: var(--accent-blue); font-size: 0.7rem; padding: 2px 10px; border-radius: 20px; width: fit-content; margin: 0 auto 1rem;">MOST POPULAR</div>
+                <h3>THE BOOKING PRO</h3>
+                <div class="price-val">$999</div>
+                <p style="color: var(--text-muted); flex-grow: 1;">A complete business engine with automated systems.</p>
+                <ul style="list-style: none; padding: 0; margin: 2rem 0; text-align: left; font-size: 0.9rem;">
+                    <li><i class="fas fa-check" style="color: var(--accent-blue)"></i> Automated Booking System</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-blue)"></i> SMS & Email Reminders</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-blue)"></i> Advanced Local SEO</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary">Choose Pro</a>
+            </div>
+
+            <div class="price-card">
+                <h3>GROWTH PARTNER</h3>
+                <div class="price-val">$250<span>/mo</span></div>
+                <p style="color: var(--text-muted); flex-grow: 1;">Ongoing management for businesses that want to dominate.</p>
+                <ul style="list-style: none; padding: 0; margin: 2rem 0; text-align: left; font-size: 0.9rem;">
+                    <li><i class="fas fa-check" style="color: var(--accent-blue)"></i> Google Business Management</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-blue)"></i> Monthly Performance Reports</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-blue)"></i> Unlimited Site Updates</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="background: transparent; border: 1px solid var(--accent-blue);">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="padding: 5rem 0;">
+        <div class="contact-container">
+            <div>
+                <h2 style="font-size: 2.5rem; margin: 0;">Let's Build Something <span style="color: var(--accent-blue)">Elite.</span></h2>
+                <p style="color: var(--text-muted); margin-top: 2rem;">Ready to bridge the gap between your expertise and your customers' screens? Drop us a message.</p>
+                <div style="margin-top: 3rem;">
+                    <p><i class="fas fa-envelope" style="color: var(--accent-blue); margin-right: 10px;"></i> precisionwebsolutions2026@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--accent-blue); margin-right: 10px;"></i> Global Operations</p>
+                </div>
+            </div>
+            <form class="contact-form" action="mailto:precisionwebsolutions2026@gmail.com" method="post" enctype="text/plain">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <select style="width: 100%; background: var(--bg-deep); border: 1px solid rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px; color: var(--text-muted); margin-bottom: 1rem;">
+                    <option>Select Package</option>
+                    <option>The Starter - $499</option>
+                    <option>The Booking Pro - $999</option>
+                    <option>Growth Partner - $250/mo</option>
+                </select>
+                <textarea rows="5" placeholder="Tell us about your business..."></textarea>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="padding: 4rem 5%; background: #03050a; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p style="font-weight: 800; letter-spacing: 2px;">PRECISION <span style="color: var(--accent-blue)">WEB SOLUTIONS</span></p>
+        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem;">&copy; 2026 All Rights Reserved. Engineered for excellence.</p>
+    </footer>
+
+</body>
+</html>
